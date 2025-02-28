@@ -8,10 +8,10 @@ import (
 )
 
 var listCmd = &cobra.Command{
-	Use:   "list",
+	Use:   "list [directory]",
 	Short: "List files in a directory",
 	Run: func(cmd *cobra.Command, args []string) {
-		dir := "."
+		dir := currentDir
 
 		if len(args) > 0 {
 			dir = args[0]

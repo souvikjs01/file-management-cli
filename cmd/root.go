@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -17,4 +18,15 @@ var rootCmd = &cobra.Command{
 
 func Execute() error {
 	return rootCmd.Execute()
+}
+
+var currentDir string
+
+func init() {
+	currentDir, err := os.Getwd()
+	if err != nil {
+		fmt.Println("error getting cd", err)
+		return
+	}
+	fmt.Println("current dir", currentDir)
 }
